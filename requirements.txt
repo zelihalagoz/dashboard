@@ -7,4 +7,3 @@ plotly
 streamlit
 pyjstat
 requests
-json
