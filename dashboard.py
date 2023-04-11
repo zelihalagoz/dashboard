@@ -343,7 +343,7 @@ st.plotly_chart(fig2, theme=None)
 filteredYear = st.selectbox('year', df_new['year'].unique())
 filteredYear = df_new[df_new['year'] == filteredYear]
 filteredYear.set_index('date', inplace=True)
-print(filteredYear.head(2))
+#print(filteredYear.head(2))
 st.subheader('Annual passengers per year')
 
 fig3 = px.scatter(filteredYear, x=filteredYear.index, y='value', 
