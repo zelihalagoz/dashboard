@@ -5,7 +5,6 @@ import streamlit as st
 import plotly.express as px
 from pyjstat import pyjstat
 import requests
-import json
 
 #=====>>> Dashboard title
 st.title('Airport passenger traffic in Norway')
@@ -207,12 +206,11 @@ def api_to_df(postUrl, query):
     response = requests.post(postUrl, json=query)
     # put the response in variable ds that has metadata and data
     ds = pyjstat.Dataset.read(response.text)
-    data = response.json()
     df = ds.write('dataframe')
     
-    return df, data
+    return df
 
-df, data = api_to_df(postUrl, api_query)
+df = api_to_df(postUrl, api_query)
 
 #======>>> Show dataframe
 if st.checkbox('Show raw data'):
